@@ -13,6 +13,7 @@ extension DonutColors on Colors {
   static const Color grey = Color(0xffD4D4D4);
   static const Color grey1 = Color(0xff020913);
   static const Color grey2 = Color(0xff020913);
-  static const Color shadow = Color(0x3328282A);
+  static const Color shadow1 = Color(0x3328282A);
+  static const Color shadow2 = Color(0x19000000);
 }
 
