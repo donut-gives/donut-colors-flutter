@@ -9,11 +9,11 @@ extension DonutColors on Colors {
   static const Color lightBlue2 = Color(0xffB3D3F9);
   static const Color lightBlue1 = Color(0xffD8E9FD);
   static const Color white = Color(0xffFFFFFF);
-  static const Color offWhite = Color(0xffFAFAFA);
-  static const Color grey = Color(0xffD4D4D4);
-  static const Color grey1 = Color(0xff020913);
-  static const Color grey2 = Color(0xff020913);
+  static const Color offWhite = Color(0xffFAFCFF);
+  static const Color grey = Color(0xFFD4D4D4);
+  static const Color grey1 = Color(0xFF676B71);
+  static const Color grey2 = Color(0xFF9A9DA1);
   static const Color shadow1 = Color(0x3328282A);
-  static const Color shadow2 = Color(0x19000000);
+  static const Color shadow2 = Color(0x26000000);
 }
 
