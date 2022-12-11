@@ -1,11 +1,8 @@
-import 'package:flutter/material.dart';
+import 'package:donutcolors/src/donut_color.dart';
+import 'package:donutcolors/src/swatch_enums.dart';
 
-class DonutColor extends Color {
-  const DonutColor(int value) : super(value);
-
-  operator [](double opacity) => withOpacity(opacity);
-}
-
+export 'src/donut_color.dart';
+export 'src/swatch_enums.dart';
 
 
 /// Color library of Donut
@@ -14,19 +11,32 @@ class DonutColor extends Color {
 /// DonutColors.blue[0.3]
 class DonutColors {
   DonutColors._();
+
+  static const DonutColor background = DonutColor(0xFFFFFFFF);
+  static const DonutColor surface = DonutColor(0xFFFAFCFF);
+
+  static final DonutColorSwatch<Primary> primary = DonutColorSwatch(0xFF1E7BEE,
+      {
+        Primary.main: 0xFF1E7BEE,
+        Primary.light1: 0xFF1D9BF0,
+        Primary.light2: 0xFFB3D3F9,
+        Primary.ultralight: 0xFFD8E9FD
+      });
+
+  static final DonutColorSwatch<Secondary> secondary = DonutColorSwatch(0xFFEF5DA8, {Secondary.main: 0xFFEF5DA8});
+
+  static final DonutColorSwatch<TextSwatch> text = DonutColorSwatch(0xFF28282A,
+      {
+        TextSwatch.display: 0xFF28282A,
+        TextSwatch.body: 0xFF676B71,
+        TextSwatch.inactive: 0xFF9A9DA1,
+        TextSwatch.inverted: 0xFFFFFFFF
+      });
   
-  static const DonutColor blue = DonutColor(0xFF1E7BEE);
-  static const DonutColor black = DonutColor(0xFF020913);
-  static const DonutColor display = DonutColor(0xFF28282A);
-  static const DonutColor pink = DonutColor(0xFFEF5DA8);
-  static const DonutColor lightBlue = DonutColor(0xFF1D9BF0);
-  static const DonutColor lightBlue2 = DonutColor(0xFFB3D3F9);
-  static const DonutColor lightBlue1 = DonutColor(0xFFD8E9FD);
-  static const DonutColor white = DonutColor(0xFFFFFFFF);
-  static const DonutColor offWhite = DonutColor(0xFFFAFCFF);
-  static const DonutColor grey = DonutColor(0xFFD4D4D4);
-  static const DonutColor grey1 = DonutColor(0xFF676B71);
-  static const DonutColor grey2 = DonutColor(0xFF9A9DA1);
-  static const DonutColor shadow1 = DonutColor(0x3328282A);
-  static const DonutColor shadow2 = DonutColor(0x26000000);
+  static final DonutColorSwatch<Shadows> shadow = DonutColorSwatch(0xFFD4D4D4,
+      {
+        Shadows.dark: 0xFFD4D4D4,
+        Shadows.light: 0x3328282A,
+        Shadows.ultralight: 0x26000000
+      });
 }
