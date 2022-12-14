@@ -28,7 +28,7 @@ class DonutColorSwatch<T> extends DonutColor {
     DonutColor? color = _swatch[input];
     if (color == null) {
       print("No color defined for $input. Returning lighter variant of primary color with 0.6 opacity instead");
-      return this * 0.6;
+      return this;
     } else {
       return _swatch[input]!;
     }
