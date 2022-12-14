@@ -10,33 +10,66 @@ export 'src/swatch_enums.dart';
 /// Example - To use color [blue] with 30% opacity
 /// DonutColors.blue[0.3]
 class DonutColors {
-  DonutColors._();
-
-  static const DonutColor background = DonutColor(0xFFFFFFFF);
-  static const DonutColor surface = DonutColor(0xFFFAFCFF);
-
-  static final DonutColorSwatch<Primary> primary = DonutColorSwatch(0xFF1E7BEE,
+  DonutColors({
+    background = 0xFFFAFAFA,
+    surface = 0xFFFFFFFF,
+    primaryMain = 0xFF1E7BEE,
+    primaryLight1 = 0xFF549BF2,
+    primaryLight2 = 0xFF7AB1F5,
+    primaryUltraLight = 0xFFA0C8F8,
+    secondaryMain = 0xFFEF5DA8,
+    secondaryVariant = 0xFFF6A2CD,
+    neutralMain = 0xFFE0E0E0,
+    neutralVariant = 0xFFD0D0D0,
+    textMain = 0xFF303030,
+    textInactive = 0xFF7A7A7A,
+    textInverted = 0xFFFFFFFF,
+    shadowLight = 0x15000000,
+    shadowMedium = 0x1F000000,
+    shadowDark = 0x28000000,
+    error = 0xFFEA4335
+  }):
+      this.background = DonutColor(background),
+      this.surface = DonutColor(surface),
+      this.primary = DonutColorSwatch(primaryMain,
+          {
+            Primary.main: primaryMain,
+            Primary.light1: primaryLight1,
+            Primary.light2: primaryLight2,
+            Primary.ultralight: primaryUltraLight
+          }),
+  this.secondary = DonutColorSwatch(secondaryMain,
       {
-        Primary.main: 0xFF1E7BEE,
-        Primary.light1: 0xFF1D9BF0,
-        Primary.light2: 0xFFB3D3F9,
-        Primary.ultralight: 0xFFD8E9FD
-      });
-
-  static final DonutColorSwatch<Secondary> secondary = DonutColorSwatch(0xFFEF5DA8, {Secondary.main: 0xFFEF5DA8});
-
-  static final DonutColorSwatch<TextSwatch> text = DonutColorSwatch(0xFF28282A,
+        Secondary.main: secondaryMain,
+        Secondary.variant: secondaryVariant
+      }),
+  this.neutral = DonutColorSwatch(neutralMain,
       {
-        TextSwatch.display: 0xFF28282A,
-        TextSwatch.body: 0xFF676B71,
-        TextSwatch.inactive: 0xFF9A9DA1,
-        TextSwatch.inverted: 0xFFFFFFFF
-      });
-  
-  static final DonutColorSwatch<Shadows> shadow = DonutColorSwatch(0xFFD4D4D4,
+        Neutral.main: neutralMain,
+        Neutral.variant: neutralVariant
+      }),
+  this.text = DonutColorSwatch(textMain,
       {
-        Shadows.dark: 0xFFD4D4D4,
-        Shadows.light: 0x3328282A,
-        Shadows.ultralight: 0x26000000
-      });
+        TextSwatch.main: textMain,
+        TextSwatch.inactive: textInactive,
+        TextSwatch.inverted: textInverted
+      }),
+  this.shadow = DonutColorSwatch(shadowLight,
+      {
+        Shadows.light: shadowLight,
+        Shadows.medium: shadowMedium,
+        Shadows.dark: shadowDark
+      }),
+  this.error = DonutColor(error);
+
+  final DonutColor background;
+  final DonutColor surface;
+  final DonutColorSwatch<Primary> primary;
+  final DonutColorSwatch<Secondary> secondary;
+  final DonutColorSwatch<Neutral> neutral;
+  final DonutColorSwatch<TextSwatch> text;
+  final DonutColorSwatch<Shadows> shadow;
+  final DonutColor error;
 }
+
+final DonutDyes = DonutColors();

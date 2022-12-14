@@ -12,14 +12,18 @@ enum Secondary {
 }
 
 enum Shadows {
-  dark,
   light,
-  ultralight
+  medium,
+  dark
+}
+
+enum Neutral {
+  main,
+  variant
 }
 
 enum TextSwatch {
-  display,
-  body,
+  main,
   inactive,
   inverted
 }
