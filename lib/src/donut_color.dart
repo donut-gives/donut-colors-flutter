@@ -1,6 +1,6 @@
 import 'dart:math';
+import 'dart:ui';
 
-import 'package:donutcolors/src/color.dart';
 
 
 class DonutColor extends Color {
