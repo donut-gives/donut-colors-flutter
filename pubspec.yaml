@@ -1,6 +1,6 @@
 name: donutcolors
 description: Package containing all standard Donut colors.
-version: 0.0.1
+version: 1.0.0
 homepage:
 
 environment:
