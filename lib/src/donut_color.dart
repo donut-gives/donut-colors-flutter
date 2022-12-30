@@ -9,13 +9,15 @@ import 'package:donutcolors/donutcolors.dart';
 class DonutColor extends Color {
   const DonutColor(super.value);
 
-  DonutColor operator *(double opacity) => DonutColor(withOpacity(opacity).value);
+  DonutColor operator *(double opacity) => DonutColor(
+      ((opacity * 255.0).round() << 24 | 0x00ffffff & value)
+  );
 
   DonutColor operator +(DonutColor color) => DonutColor(
-      min<int>(value * 0xff000000 + color.value * 0xff000000, 0xff000000)
-          + min<int>(value * 0x00ff0000 + color.value * 0x00ff0000, 0x00ff0000)
-          + min<int>(value * 0x0000ff00 + color.value * 0x0000ff00, 0x0000ff00)
-          + min<int>(value * 0x000000ff + color.value * 0x000000ff, 0x000000ff)
+      min<int>(value & 0xff000000 + color.value & 0xff000000, 0xff000000)
+          + min<int>(value & 0x00ff0000 + color.value & 0x00ff0000, 0x00ff0000)
+          + min<int>(value & 0x0000ff00 + color.value & 0x0000ff00, 0x0000ff00)
+          + min<int>(value & 0x000000ff + color.value & 0x000000ff, 0x000000ff)
   );
 }
 
