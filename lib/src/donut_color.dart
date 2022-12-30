@@ -22,6 +22,30 @@ class DonutColor extends Color {
 }
 
 class DonutColorSwatch<T extends Enum> extends DonutColor {
+  factory DonutColorSwatch.fromValues(Map<T, int?> values){
+    int _0 = 0;
+    DonutColor? _1;
+    DonutColor? _2;
+    DonutColor? _3;
+    values.forEach((key, value) {
+      switch(key.index){
+        case 0:
+          _0 = value!;
+          break;
+        case 1:
+          _1 = value!=null?DonutColor(value):null;
+          break;
+        case 2:
+          _2 = value!=null?DonutColor(value):null;
+          break;
+        case 3:
+          _3 = value!=null?DonutColor(value):null;
+          break;
+      }
+    });
+    return DonutColorSwatch.primary(main: _0, light1: _1, light2: _2, ultraLight: _3);
+  }
+
   const DonutColorSwatch.primary({required int main, DonutColor? light1, DonutColor? light2, DonutColor? ultraLight}) :
         _1 = light1,
         _2 = light2,
