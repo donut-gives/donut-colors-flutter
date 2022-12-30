@@ -1,4 +1,3 @@
-
 enum Primary{
   main,
   light1,

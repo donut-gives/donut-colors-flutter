@@ -1,12 +1,15 @@
+import 'dart:ffi';
 import 'dart:math';
 import 'dart:ui';
+
+import 'package:donutcolors/donutcolors.dart';
 
 
 
 class DonutColor extends Color {
-  const DonutColor(int value) : super(value);
+  const DonutColor(super.value);
 
-  DonutColor operator *(double opacity) => withOpacity(opacity) as DonutColor;
+  DonutColor operator *(double opacity) => DonutColor(withOpacity(opacity).value);
 
   DonutColor operator +(DonutColor color) => DonutColor(
       min<int>(value * 0xff000000 + color.value * 0xff000000, 0xff000000)
@@ -16,21 +19,60 @@ class DonutColor extends Color {
   );
 }
 
-class DonutColorSwatch<T> extends DonutColor {
-  DonutColorSwatch(int value, Map<T, int> swatch) :
-        assert(swatch.containsValue(value)),
-        _swatch = swatch.map((key, val) => MapEntry(key, DonutColor(val))),
-        super(value);
+class DonutColorSwatch<T extends Enum> extends DonutColor {
+  const DonutColorSwatch.primary({required int main, DonutColor? light1, DonutColor? light2, DonutColor? ultraLight}) :
+        _1 = light1,
+        _2 = light2,
+        _3 = ultraLight,
+        super(main);
 
-  final Map<T, DonutColor> _swatch;
+  const DonutColorSwatch.secondary({required int main, DonutColor? variant}):
+        _1 = variant,
+        _2 = null,
+        _3 = null,
+        super(main);
+
+  const DonutColorSwatch.neutral({required int main, DonutColor? variant}):
+        _1 = variant,
+        _2 = null,
+        _3 = null,
+        super(main);
+
+  const DonutColorSwatch.shadows({required int light, DonutColor? medium, DonutColor? dark}):
+        _1 = medium,
+        _2 = dark,
+        _3 = null,
+        super(light);
+
+  const DonutColorSwatch.Text({required int main, DonutColor? inactive, DonutColor? inverted}):
+        _1 = inactive,
+        _2 = inverted,
+        _3 = null,
+        super(main);
+
+  get _0 => this;
+  final DonutColor? _1;
+  final DonutColor? _2;
+  final DonutColor? _3;
+
+  final _len = 4;
 
   DonutColor operator [](T input){
-    DonutColor? color = _swatch[input];
-    if (color == null) {
-      print("No color defined for $input. Returning lighter variant of primary color with 0.6 opacity instead");
-      return this;
+    int index = input.index;
+    if (index < _len) {
+      return _getDonutColor(index);
     } else {
-      return _swatch[input]!;
+      return _getDonutColor(_len - 1);
+    }
+  }
+
+  DonutColor _getDonutColor(int index) {
+    switch(index) {
+      case 0: return _0;
+      case 1: return _1??_0;
+      case 2: return _2??_1??_0;
+      case 3: return _3??_2??_1??_0;
+      default: return _3??_2??_1??_0;
     }
   }
 }

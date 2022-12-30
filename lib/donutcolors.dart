@@ -10,57 +10,16 @@ export 'src/swatch_enums.dart';
 /// Example - To use color [blue] with 30% opacity
 /// DonutColors.blue[0.3]
 class DonutColors {
-  DonutColors({
-    background = 0xFFFAFAFA,
-    surface = 0xFFFFFFFF,
-    primaryMain = 0xFF1E7BEE,
-    primaryLight1 = 0xFF549BF2,
-    primaryLight2 = 0xFF7AB1F5,
-    primaryUltraLight = 0xFFA0C8F8,
-    secondaryMain = 0xFFEF5DA8,
-    secondaryVariant = 0xFFF6A2CD,
-    neutralMain = 0xFFE0E0E0,
-    neutralVariant = 0xFFD0D0D0,
-    textMain = 0xFF303030,
-    textInactive = 0xFF7A7A7A,
-    textInverted = 0xFFFFFFFF,
-    shadowLight = 0x15000000,
-    shadowMedium = 0x1F000000,
-    shadowDark = 0x28000000,
-    error = 0xFFEA4335
-  }):
-      this.background = DonutColor(background),
-      this.surface = DonutColor(surface),
-      this.primary = DonutColorSwatch(primaryMain,
-          {
-            Primary.main: primaryMain,
-            Primary.light1: primaryLight1,
-            Primary.light2: primaryLight2,
-            Primary.ultralight: primaryUltraLight
-          }),
-  this.secondary = DonutColorSwatch(secondaryMain,
-      {
-        Secondary.main: secondaryMain,
-        Secondary.variant: secondaryVariant
-      }),
-  this.neutral = DonutColorSwatch(neutralMain,
-      {
-        Neutral.main: neutralMain,
-        Neutral.variant: neutralVariant
-      }),
-  this.text = DonutColorSwatch(textMain,
-      {
-        TextSwatch.main: textMain,
-        TextSwatch.inactive: textInactive,
-        TextSwatch.inverted: textInverted
-      }),
-  this.shadow = DonutColorSwatch(shadowLight,
-      {
-        Shadows.light: shadowLight,
-        Shadows.medium: shadowMedium,
-        Shadows.dark: shadowDark
-      }),
-  this.error = DonutColor(error);
+  const DonutColors({
+    required this.background,
+    required this.surface,
+    required this.primary,
+    required this.secondary,
+    required this.neutral,
+    required this.shadow,
+    required this.text,
+    required this.error
+  });
 
   final DonutColor background;
   final DonutColor surface;
@@ -72,4 +31,27 @@ class DonutColors {
   final DonutColor error;
 }
 
-final DonutDyes = DonutColors();
+final DonutDyes = DonutColors(
+    background: const DonutColor(0xFFFAFAFA),
+    surface: const DonutColor(0xFFFFFFFF),
+    primary: const DonutColorSwatch.primary(main: 0xFF1E7BEE,
+      light1: const DonutColor(0xFF549BF2),
+      light2: const DonutColor(0xFF7AB1F5),
+      ultraLight: const DonutColor(0xFFA0C8F8)
+    ),
+    secondary: const DonutColorSwatch.secondary(main: 0xFFEF5DA8,
+      variant: const DonutColor(0xFFF6A2CD)
+    ),
+    neutral: const DonutColorSwatch.neutral(main: 0xFFE0E0E0,
+      variant: const DonutColor(0xFFD0D0D0)
+    ),
+    text: const DonutColorSwatch.Text(main: 0xFF303030,
+      inactive: const DonutColor(0xFF7A7A7A),
+      inverted: const DonutColor(0xFFFFFFFF),
+    ),
+    shadow: const DonutColorSwatch.shadows(light: 0x15000000,
+        medium: const DonutColor(0x1F000000),
+        dark: const DonutColor(0x28000000)
+    ),
+  error: const DonutColor(0xFFEA4335)
+);
